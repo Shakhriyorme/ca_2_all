@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Learning Projects | Rahmonaliyev Shahriyor</title>
+    <style>
+        :root {
+            --bg-color: #fafafa;
+            --text-main: #111111;
+            --text-muted: #666666;
+            --card-bg: #ffffff;
+            --border-color: #eaeaea;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 60px 20px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px auto;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin: 0 0 12px 0;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        /* Responsive Grid & Center-Alignment Logic */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Main Anchor Card Wrapper */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Visual Gradient Banners */
+        .card-banner {
+            height: 180px;
+            width: 100%;
+            transition: transform 0.4s ease;
+        }
+
+        .bg-loan { background: linear-gradient(135deg, #2e7d32 0%, #81c784 100%); }
+        .bg-cancer { background: linear-gradient(135deg, #c62828 0%, #ef5350 100%); }
+        .bg-parkinson { background: linear-gradient(135deg, #1565c0 0%, #42a5f5 100%); }
+        .bg-sentiment { background: linear-gradient(135deg, #ff8f00 0%, #ffca28 100%); }
+        .bg-stock { background: linear-gradient(135deg, #212121 0%, #424242 100%); }
+
+        /* Card Content Inner Structural Padding */
+        .card-content {
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin: 0 0 10px 0;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin: 0 0 24px 0;
+            flex-grow: 1;
+        }
+
+        /* Refined Dynamic Meta Badges */
+        .card-footer {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            letter-spacing: 0.02em;
+        }
+
+        .badge-model {
+            background-color: #f0f0f0;
+            color: #333333;
+        }
+
+        .badge-score {
+            background-color: #e3f2fd;
+            color: #0d47a1;
+        }
+
+        /* Hover States */
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: #b5b5b5;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        /* FORCE 5TH ITEM TO STAND ALONE AND CENTER PERFECTLY */
+        .card:nth-child(5) {
+            grid-column: span 2;
+            justify-self: center;
+            width: 50%;
+            min-width: 450px;
+        }
+
+        /* Responsive Breakpoints for Mobile View */
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .card:nth-child(5) {
+                grid-column: span 1;
+                width: 100%;
+                min-width: unset;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Rahmonaliyev Shahriyor</h1>
+        <p>My Learning Projects</p>
+    </div>
+
+    <div class="projects-grid">
+
+        <a href="https://www.kaggle.com/code/shahriyorme/loan-prediction" target="_blank" class="card">
+            <div class="card-banner bg-loan"></div>
+            <div class="card-content">
+                <h2 class="card-title">🏦 Loan Approval Prediction</h2>
+                <p class="card-desc">Evaluates financial and demographic profiles to predict loan default risks. Features synthetic minority over-sampling via SMOTE to neutralize data imbalance.</p>
+                <div class="card-footer">
+                    <span class="badge badge-model">Tuned XGBoost</span>
+                    <span class="badge badge-score">77.24% Accuracy</span>
+                </div>
+            </div>
+        </a>
+
+        <a href="https://www.kaggle.com/code/shahriyorme/breast-cancer" target="_blank" class="card">
+            <div class="card-banner bg-cancer"></div>
+            <div class="card-content">
+                <h2 class="card-title">🔬 Breast Cancer Identification</h2>
+                <p class="card-desc">Diagnostic classification system leveraging microscopic cellular measurements to differentiate malignant tumors from benign growths with high precision.</p>
+                <div class="card-footer">
+                    <span class="badge badge-model">Logistic Regression</span>
+                    <span class="badge badge-score">97.37% Accuracy</span>
+                </div>
+            </div>
+        </a>
+
+        <a href="https://www.kaggle.com/code/shahriyorme/parkinson-data" target="_blank" class="card">
+            <div class="card-banner bg-parkinson"></div>
+            <div class="card-content">
+                <h2 class="card-title">🧠 Parkinson's Disease Detection</h2>
+                <p class="card-desc">Biomedical voice signal processing pipeline analyzing vocal tremors and frequency variations to non-invasively classify Parkinson's pathology.</p>
+                <div class="card-footer">
+                    <span class="badge badge-model">XGBoost Classifier</span>
+                    <span class="badge badge-score">94.87% Accuracy</span>
+                </div>
+            </div>
+        </a>
+
+        <a href="https://www.kaggle.com/code/shahriyorme/sentiment-analysis" target="_blank" class="card">
+            <div class="card-banner bg-sentiment"></div>
+            <div class="card-content">
+                <h2 class="card-title">🎬 Movie Review Sentiment Analysis</h2>
+                <p class="card-desc">Natural Language Processing (NLP) framework utilizing TF-IDF matrix tokenization to evaluate context and determine sentiment polarity on 50k IMDB reviews.</p>
+                <div class="card-footer">
+                    <span class="badge badge-model">TF-IDF + LogReg</span>
+                    <span class="badge badge-score">88.82% Accuracy</span>
+                </div>
+            </div>
+        </a>
+
+        <a href="https://stockmarketapp-010105060.streamlit.app/" target="_blank" class="card">
+            <div class="card-banner bg-stock"></div>
+            <div class="card-content">
+                <h2 class="card-title">📈 AI Stock Market Predictor App</h2>
+                <p class="card-desc">A live time-series deployment integrating real-time yFinance market data streaming with automated Random Forest pipeline executions under Streamlit.</p>
+                <div class="card-footer">
+                    <span class="badge badge-model">Random Forest Regressor</span>
+                    <span class="badge badge-score">Live Streamlit App</span>
+                </div>
+            </div>
+        </a>
+
+    </div>
+
+</body>
+</html>
